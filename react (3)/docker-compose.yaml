@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  web:
+    image: vaibhav655/react 
+    # command: 
+    container_name: react_app
+    environment:
+      - REACT_APP_BACKEND_URL=http://backend_app:8000
+      # - REACT_APP_BACKEND_URL
+    volumes:
+      - .:/react_app
+    ports:
+      - "3000:3000"
+    networks:
+      - data-net
+
+networks:
+  data-net:
+    driver: bridge
+    external: true
